@@ -6,7 +6,9 @@ import{Navigation} from 'swiper/modules';
 import 'swiper/css/bundle';
 import {FaBath,FaBed,
     FaChair,FaMapMarkedAlt,
-    FaMapMarkerAlt,FaParking,FaShare} from 'react-icons/fa'
+    FaMapMarkerAlt,FaParking,FaShare} from 'react-icons/fa';
+import {  useSelector } from 'react-redux';
+import Contact from '../components/Contact';
 // https://sabe.io/blog/javascript-format-numbers-commas#:~:text=The%20best%20way%20to%20format,format%20the%20number%20with%20commas.
 export default function Listing() {
     SwiperCore.use([Navigation]);
@@ -14,7 +16,10 @@ export default function Listing() {
     const[loading,setLoading]=useState(false);
     const[error,setError]=useState(false);
     const[copied,setCopied]=useState(false);
+    const[contact,setContact]=useState(false);
     const params=useParams();
+    const {currentUser}=useSelector((state)=>state.user);
+    
     useEffect(()=>{
         const fetchListing=async()=>{
             try {
@@ -50,7 +55,7 @@ export default function Listing() {
                 {listing.imageUrls.map((url)=>(
                 <SwiperSlide key={url}>
                 <div
-                className="h-[900px] "
+                className="h-[800px] "
                 style={{background:`url(${url}) center no-repeat`,backgroundSize:'cover'
                 }}>
 
@@ -125,9 +130,14 @@ export default function Listing() {
                 {listing.furnished ? 'Furnished' : 'Unfurnished'}
               </li>
             </ul>
+            {currentUser && listing.userRef !== currentUser._id && !contact &&(
+                 <button onClick={()=>setContact(true)} className='bg-slate-700 text-white 
+                 uppercase p-3 hover:opacity-95 rounded-lg '>Contact landlord</button>
+            )}
+           {contact &&<Contact listing={listing}/>}
           </div>
-             </div>
-            )}        
+        </div>
+     )}        
     </main>
   );
-}
+} 
