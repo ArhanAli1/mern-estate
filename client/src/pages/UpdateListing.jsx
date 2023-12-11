@@ -298,7 +298,7 @@ const params=useParams();
           ))
         }
         <button disabled={loading||uploading} className='p-3 bg-slate-700 rounded-lg uppercase text-white hover:opacity-95
-      disabled:opacity-80'> {loading ? 'Creating...':'Update listing'} </button>
+      disabled:opacity-80'> {loading ? 'Updating...':'Update listing'} </button>
       {error && <p className="text-red-700 text-sm">{error}</p>}
       </div>
       
