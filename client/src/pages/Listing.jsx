@@ -8,7 +8,7 @@ import {FaBath,FaBed,
     FaChair,FaMapMarkedAlt,
     FaMapMarkerAlt,FaParking,FaShare} from 'react-icons/fa';
 import {  useSelector } from 'react-redux';
-import Contact from '../components/Contact';
+import Contact from '../components/Contact.jsx';
 // https://sabe.io/blog/javascript-format-numbers-commas#:~:text=The%20best%20way%20to%20format,format%20the%20number%20with%20commas.
 export default function Listing() {
     SwiperCore.use([Navigation]);
@@ -55,7 +55,7 @@ export default function Listing() {
                 {listing.imageUrls.map((url)=>(
                 <SwiperSlide key={url}>
                 <div
-                className="h-[800px] "
+                className="h-[550px] "
                 style={{background:`url(${url}) center no-repeat`,backgroundSize:'cover'
                 }}>
 
