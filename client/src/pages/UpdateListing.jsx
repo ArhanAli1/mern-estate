@@ -4,7 +4,7 @@ import{app} from '../firebase.js'
 import{useSelector} from 'react-redux';
 
 import { useNavigate,useParams } from "react-router-dom";
-export default function CreateListing() {
+export default function Updatelisting() {
 const {currentUser}=useSelector(state=>state.user);
 const navigate=useNavigate();
 const params=useParams();
