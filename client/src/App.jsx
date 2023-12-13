@@ -4,7 +4,6 @@ import SignUp from './pages/SignUp.jsx'
 import Profile from './pages/Profile.jsx';
 import About from './pages/About.jsx';
 import Header from './components/Header.jsx';
-// import SignIn from './pages/SignIn.jsx';
 import SignIn from './pages/SignIn.jsx';
 import PrivateRoute from './components/PrivateRoute.jsx';
 import CreateListing from './pages/CreateListing.jsx';
